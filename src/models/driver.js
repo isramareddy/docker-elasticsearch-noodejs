@@ -8,7 +8,7 @@ const driverSchema = new Schema({
     full_name: {
         type: String,
         default: '',
-        es_indexed:true
+       // es_indexed:true
     },
     email: {
         type: String,
