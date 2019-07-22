@@ -25,7 +25,7 @@ Driver.createMapping((err, mapping) => {
       console.log('Mapping Created');
       console.log(mapping);
    }
-})
+});
 
 var stream = Driver.synchronize();
 var count = 0;
@@ -69,11 +69,19 @@ connection.once('open',
          Driver.search(
          {
                 query_string: {
-                    query: "Siab Mohamed Amine"
+                    query: "9"
                 }
             }, function(err, results) {
                 // results here
-                console.log(results.hits['hits']);
+                if (results && results.hits && results.hits.hits)
+                var data = results.hits.hits.map((hit) => {
+                    console.log(hit)
+                })
+                else if (results && results.hits)
+                    console.log(results.hits)
+                 else
+                    console.log(results)
+               // console.log(results);
                 console.log(err);
             }
          );
