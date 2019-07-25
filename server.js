@@ -1,26 +1,21 @@
-'use strict';
 
-const express = require('express');
-const mongoose = require('mongoose');
-
-// models => driver
-const Driver = require('./src/models/driver');
+import '@babel/polyfill';
+import express from 'express';
+import mongoose from 'mongoose';
+import Driver from'./src/models/driver';
 // Constants
-const PORT = 3080;
-const HOST = '0.0.0.0';
-
+import {SERVER_HOST, SERVER_PORT} from './src/config/constants';
+// route
+import router  from './src/services/route';
 // App
 const app = express();
 
-// app.use(cors({origin : '*'}));
-// app.use(bodyParser.json({ 'type': '*/*',limit: '20mb' }));
-// app.use(express.static(path.resolve('./public')));
 
 
 Driver.createMapping((err, mapping) => {
    if (err){
       console.log('error creating mapping !');
-      console.log(err);
+      // console.log(err);
    }else{
       console.log('Mapping Created');
       console.log(mapping);
@@ -58,35 +53,6 @@ const connection = mongoose.connection;
 connection.once('open',
     () => {
         console.log('MongoDB database connection established successfully!');
-
-
-
-      // Driver.find().limit(10).lean().then(
-      //     (res) => console.log(res),
-      //     (err) => console.log(err)
-      // );
-
-         Driver.search(
-         {
-                query_string: {
-                    query: "9"
-                }
-            }, function(err, results) {
-                // results here
-                if (results && results.hits && results.hits.hits)
-                var data = results.hits.hits.map((hit) => {
-                    console.log(hit)
-                })
-                else if (results && results.hits)
-                    console.log(results.hits)
-                 else
-                    console.log(results)
-               // console.log(results);
-                console.log(err);
-            }
-         );
-
-
     },
     () => {
         console.log('MongoDB database connection failed!');
@@ -96,6 +62,8 @@ app.get('/', (req, res) => {
     res.send('Hello world\n');
 });
 
-app.listen(PORT, HOST,() => {
-    console.log(`Server is running on ${HOST}:${PORT}`);
+app.use('/api/v1', router);
+
+app.listen(SERVER_PORT, SERVER_HOST,() => {
+    console.log(`Server is running on ${SERVER_HOST}:${SERVER_PORT}`);
 });
