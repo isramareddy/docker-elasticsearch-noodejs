@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const mongoosastic = require('mongoosastic');
+import mongoose from 'mongoose';
+import ES from 'mongoosastic';
 
 const { Schema } = mongoose;
 
@@ -25,13 +25,13 @@ const driverSchema = new Schema({
     }
 });
 
-driverSchema.plugin(mongoosastic, {
+driverSchema.plugin(ES, {
     hosts: [
         'localhost:9200',
     ]
 });
 
-const Driver = mongoose.model('Driver', driverSchema);
+export { driverSchema };
+export default mongoose.model('Driver', driverSchema);
 
 
-module.exports = Driver;
