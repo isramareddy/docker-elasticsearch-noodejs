@@ -16,7 +16,7 @@ const driverSchema = new Schema({
     },
     phone: {
         type: String,
-        default: ''
+        default: '',
     }
 }, {
     timestamps: {
