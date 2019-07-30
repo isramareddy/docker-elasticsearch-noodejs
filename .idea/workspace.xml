@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c5a7e92-0646-469b-9f3a-54e4a4a7d339" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/controllers/es-search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/es-search.js" afterDir="false" />
+    <list default="true" id="0c5a7e92-0646-469b-9f3a-54e4a4a7d339" name="Default Changelist" comment="implemented new endpoint for useHydrateWithOptionsWithESResults.">
+      <change afterPath="$PROJECT_DIR$/src/controllers/es/advanced-es-search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/es-search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/es/es-search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/route.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -43,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+            <state relative-caret-position="405">
+              <caret line="27" column="32" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="32" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -74,19 +76,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/es-search.js">
+        <entry file="file://$PROJECT_DIR$/src/controllers/es/es-search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+            <state relative-caret-position="217">
+              <caret line="73" column="31" lean-forward="true" selection-start-line="73" selection-end-line="74" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.babelrc">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controllers/es/advanced-es-search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="135">
+              <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -106,7 +108,9 @@
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/src/models/driver.js" />
         <option value="$PROJECT_DIR$/src/controllers/es-search.js" />
+        <option value="$PROJECT_DIR$/src/controllers/es/es-search.js" />
         <option value="$PROJECT_DIR$/src/services/route.js" />
+        <option value="$PROJECT_DIR$/src/controllers/es/advanced-es-search.js" />
       </list>
     </option>
   </component>
@@ -129,6 +133,24 @@
               <item name="node-docker" type="b2602c69:ProjectViewProjectNode" />
               <item name="node-docker" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="node-docker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node-docker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node-docker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node-docker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node-docker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node-docker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="es" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -142,6 +164,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/controllers/es" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -191,7 +218,7 @@
       <workItem from="1564303457968" duration="2182000" />
       <workItem from="1564305848951" duration="1753000" />
       <workItem from="1564390693863" duration="1261000" />
-      <workItem from="1564476530902" duration="4829000" />
+      <workItem from="1564476530902" duration="10138000" />
     </task>
     <task id="LOCAL-00001" summary="first push.">
       <created>1563715058071</created>
@@ -333,23 +360,58 @@
       <option name="project" value="LOCAL" />
       <updated>1564480182900</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added custom updates.">
+      <created>1564492472348</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1564492472348</updated>
+    </task>
+    <task id="LOCAL-00022" summary="implemented useHydrateWithOptionsEsSearch function.">
+      <created>1564492504084</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1564492504084</updated>
+    </task>
+    <task id="LOCAL-00023" summary="implemented new endpoint for useHydrateWithOptionsEsSearch.">
+      <created>1564492534183</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1564492534183</updated>
+    </task>
+    <task id="LOCAL-00024" summary="implemented new endpoint for useHydrateWithOptionsWithESResults.">
+      <created>1564495024724</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1564495024724</updated>
+    </task>
+    <task id="LOCAL-00025" summary="implemented new endpoint for useHydrateWithOptionsWithESResults.">
+      <created>1564495053949</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1564495053949</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28939000" />
+    <option name="totallyTimeSpent" value="34248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="949" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.13140446" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25738397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25087515" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25087515" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39907193" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -404,7 +466,11 @@
     <MESSAGE value="added function useHydrate." />
     <MESSAGE value="updated." />
     <MESSAGE value="added custom search." />
-    <option name="LAST_COMMIT_MESSAGE" value="added custom search." />
+    <MESSAGE value="added custom updates." />
+    <MESSAGE value="implemented useHydrateWithOptionsEsSearch function." />
+    <MESSAGE value="implemented new endpoint for useHydrateWithOptionsEsSearch." />
+    <MESSAGE value="implemented new endpoint for useHydrateWithOptionsWithESResults." />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented new endpoint for useHydrateWithOptionsWithESResults." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -449,20 +515,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/es-search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="405">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="32" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/es/es-search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="73" column="31" lean-forward="true" selection-start-line="73" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/es/advanced-es-search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,18 @@
-import Driver from '../models/driver';
+import Driver from '../../models/driver';
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*|Promise<any>}
+ *
+ * simpleEsSearch
+ * useHydrateEsSearch
+ * useHydrateWithOptionsEsSearch
+ * useHydrateWithOptionsWithESResults
+ *
+ */
 const simpleEsSearch = (req, res, next) => {
 
     const input = req.query.input;
@@ -83,6 +96,36 @@ const useHydrateWithOptionsEsSearch = (req, res, next) => {
     }
 }
 
+const useHydrateWithOptionsWithESResults = (req, res, next) => {
+
+    const input = req.query.input;
+    try{
+        Driver.search(
+            {
+                query_string: {
+                    query: input,
+                }
+            },
+            {
+                hydrate: true,
+                hydrateWithESResults: true,
+                hydrateOptions: {select: 'full_name'}
+            },
+            (err, results) => {
+
+                if(err)
+                    return res.status(501).json(err);
+                else
+                    return res.status(200).json(results);
+            }
+        )
+    }catch (e) {
+        return res.status(501).json(e);
+    }
+}
+
+
+
 
 
 
@@ -90,5 +133,6 @@ const useHydrateWithOptionsEsSearch = (req, res, next) => {
 export {
     simpleEsSearch,
     useHydrateEsSearch,
-    useHydrateWithOptionsEsSearch
+    useHydrateWithOptionsEsSearch,
+    useHydrateWithOptionsWithESResults
 };
