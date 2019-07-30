@@ -1,5 +1,10 @@
 import { Router } from 'express';
-import { simpleEsSearch, useHydrateEsSearch, useHydrateWithOptionsEsSearch } from '../controllers/es-search';
+import {
+         simpleEsSearch,
+         useHydrateEsSearch,
+         useHydrateWithOptionsEsSearch,
+         useHydrateWithOptionsWithESResults
+       } from '../controllers/es-search';
 
 const router = Router();
 
@@ -12,5 +17,9 @@ router.route('/es/use_hydrate')
 
 router.route('/es/use_hydrate_options')
     .get(useHydrateWithOptionsEsSearch);
+
+router.route('/es/use_hydrate_with_es_results')
+    .get(useHydrateWithOptionsWithESResults);
+
 
 export default router;
