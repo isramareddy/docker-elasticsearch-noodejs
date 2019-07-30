@@ -56,6 +56,34 @@ const useHydrateEsSearch = (req, res, next) => {
     }
 }
 
+const useHydrateWithOptionsEsSearch = (req, res, next) => {
+
+    const input = req.query.input;
+    try{
+        Driver.search(
+            {
+                query_string: {
+                    query: input,
+                }
+            },
+            {
+                hydrate: true,
+                hydrateOptions: {select: 'full_name email phone'}
+            },
+            (err, results) => {
+
+                if(err)
+                    return res.status(501).json(err);
+                else
+                    return res.status(200).json(results);
+            }
+        )
+    }catch (e) {
+        return res.status(501).json(e);
+    }
+}
+
+
 
 
 
