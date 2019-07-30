@@ -1,6 +1,6 @@
 import Driver from '../models/driver';
 
-function simpleEsSearch(req, res, next){
+const simpleEsSearch = (req, res, next) => {
 
     const input = req.query.input;
     try{
@@ -30,7 +30,7 @@ function simpleEsSearch(req, res, next){
     }
 }
 
-function useHydratEsSearch(req, res, next){
+const useHydrateEsSearch = (req, res, next) => {
 
     const input = req.query.input;
     try{
@@ -38,27 +38,57 @@ function useHydratEsSearch(req, res, next){
            {
                query_string: {
                    query: input,
-                   hydrate: true
                }
-           }, (err, results) => {
+           },
+           {
+               hydrate: true
+           },
+           (err, results) => {
 
                if(err)
                    return res.status(501).json(err);
                else
                    return res.status(200).json(results);
            }
-
        )
     }catch (e) {
         return res.status(501).json(e);
     }
-
 }
+
+const useHydrateWithOptionsEsSearch = (req, res, next) => {
+
+    const input = req.query.input;
+    try{
+        Driver.search(
+            {
+                query_string: {
+                    query: input,
+                }
+            },
+            {
+                hydrate: true,
+                hydrateOptions: {select: 'full_name email phone'}
+            },
+            (err, results) => {
+
+                if(err)
+                    return res.status(501).json(err);
+                else
+                    return res.status(200).json(results);
+            }
+        )
+    }catch (e) {
+        return res.status(501).json(e);
+    }
+}
+
 
 
 
 
 export {
     simpleEsSearch,
-    useHydratEsSearch
+    useHydrateEsSearch,
+    useHydrateWithOptionsEsSearch
 };
