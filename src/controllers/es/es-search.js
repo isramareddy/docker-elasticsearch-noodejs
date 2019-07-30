@@ -1,5 +1,18 @@
-import Driver from '../models/driver';
+import Driver from '../../models/driver';
 
+/**
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*|Promise<any>}
+ *
+ * simpleEsSearch
+ * useHydrateEsSearch
+ * useHydrateWithOptionsEsSearch
+ * useHydrateWithOptionsWithESResults
+ *
+ */
 const simpleEsSearch = (req, res, next) => {
 
     const input = req.query.input;
