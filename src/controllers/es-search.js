@@ -30,6 +30,33 @@ function simpleEsSearch(req, res, next){
     }
 }
 
+function useHydratEsSearch(req, res, next){
+
+    const input = req.query.input;
+    try{
+       Driver.search(
+           {
+               query_string: {
+                   query: input,
+                   hydrate: true
+               }
+           }, (err, results) => {
+
+               if(err)
+                   return res.status(501).json(err);
+               else
+                   return res.status(200).json(results);
+           }
+
+       )
+    }catch (e) {
+        return res.status(501).json(e);
+    }
+
+}
+
+
+
 
 export {
     simpleEsSearch,
