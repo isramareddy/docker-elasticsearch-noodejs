@@ -27,13 +27,6 @@ stages:
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(Build.BuildId)
-
-    - task: CopyFiles@2
-      displayName: 'Copy Files to: drop'
-      inputs:
-        SourceFolder: deployment
-        Contents: deployment.yaml
-        TargetFolder: drop
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
       inputs:
